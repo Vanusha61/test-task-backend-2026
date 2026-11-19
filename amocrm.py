@@ -203,7 +203,7 @@ class Lead(BaseEntity):
         self.custom_fields_values = custom_fields_values
         self._embedded = _embedded
         self.tags = []
-        self.contacts = []
+        self.contacts = (_embedded or {}).get(CONTACTS) or []
         self.companies = []
         if not _embedded:
             return
